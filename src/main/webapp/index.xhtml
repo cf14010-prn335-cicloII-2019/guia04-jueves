@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+          
+      
+      >      
+    
+    <head>
+        <title>Genero</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="resources/main.css
+              "/>
+    </head>
+    <body>
+        
+       <div class="container">
+            <div class="row">
+                <div class="card col-md-12" style="margin-top: 1rem;">
+                    <div class="card-header">
+                        <h2 class="display-5">CF14010</h2>
+                    </div>
+                    <div class="card-body">
+                        <h4>Lista de Genero</h4>
+                        <h:form id="myForm">
+                            <h:messages    styleClass="alert alert-success" />
+                            <div class="form-group">
+                                <h:dataTable 
+                                    styleClass="table table-bordered"
+                                    headerClass="thead-dark"
+                                    id="tablaMarca"
+                                    value="#{GeneroBean.gList}" var="g">
+                                    <h:column>
+                                        <f:facet name="header">Id Genero</f:facet>
+                                        <h:outputText style="" value="#{g.idGenero}" ></h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                       
+                                        <f:facet name="header">Nombre</f:facet>
+                                       
+                                        <h:outputText style="" value="#{g.nombre}" ></h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Descripcion</f:facet>
+                                       
+                                        <h:outputText style="" value="#{g.descripcion}" ></h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Activo</f:facet>
+                                      
+                                        <h:outputText style="" value="#{g.activo?'Si':'No'}" ></h:outputText>
+                                    </h:column>
+
+                                </h:dataTable>
+
+                            </div>
+
+
+                            <br/>
+                            <hr></hr>
+                            <hr></hr>
+                            
+                             <h5>Formulario Genero</h5>
+                             <hr></hr>
+                            
+                             <div class="form-group">   
+                            <label for="idg">Id Genero</label>  
+                            <h:inputText  id="idg" value="#{GeneroBean.g.idGenero}" required="true" class="form-control col-md-3"></h:inputText>
+                            </div>
+                             
+                             <div class="form-group">   
+                            <label for="nombreg">Nombre</label>  
+                            <h:inputText  id="nombreter" value="#{GeneroBean.g.nombre}" required="true" class="form-control col-md-3"></h:inputText>
+                            </div>
+                             
+                             <div class="form-group">
+                                 <label form="descripciong" >Descripción</label> 
+                                 <h:inputTextarea id="descripciong" value="#{GeneroBean.g.descripcion}" required="true" class="form-control" cols="5" rows="5" style="resize: both;">
+                                 </h:inputTextarea>
+                             </div>
+                             
+                             
+                             <div class="form-group">  
+                            <label for="activog">Activo</label>
+                            <br></br>
+                            <h:selectBooleanCheckbox  id="activoter" value="#{GeneroBean.g.activo}" required="true"></h:selectBooleanCheckbox>            
+                            </div>
+                             
+                            
+                            
+                             <h:commandButton action="#{GeneroBean.crear()}"   value="Crear"  class="btn btn-secondary">   
+                            </h:commandButton>
+                             
+                             <h:commandButton action="#{GeneroBean.modificar()}"   value="Modificar"  class="btn btn-secondary">   
+                            </h:commandButton>
+                            
+                              <h:commandButton action="#{GeneroBean.eliminar()}"   value="Eliminar"  class="btn btn-secondary">   
+                            </h:commandButton>
+                        </h:form> 
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
